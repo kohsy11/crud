@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'detail.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <div class = 'detail_box'>
+        <div class = 'detail_t'>
+            {{todo.title}}
+        </div>
+        <div class = 'detail'>
+            {{todo.content}}
+        </div>
+        <div class = 'detail'>
+            {{todo.due}}
+        </div>
+    </div>
+    <div class = 'button_box'>
+        <div class = 'button'>
+            <a href = "{% url 'edit' todo.pk %}" style = 'color:black;'> EDIT </a>
+        </div>
+        <div class = 'button'>
+            <a href = "{% url 'delete' todo.pk %}" style = 'color:black;'> DELETE </a>
+        </div>
+        <div class = 'button'>
+            <a href = "{% url 'index' %}" style = 'color:black;'> HOME </a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'index.css' %}">
+    <title>Document</title>
+</head>
+<body>  
+    <div class = 'header'>
+        <h1>TO DO LIST</h1>
+    </div>
+    {% for todo in todos %}
+    <div class = 'list'>
+        <div class = 'list_t'>
+            <a href = "{% url 'detail' todo.pk %}" style = 'color:black;'> {{todo.title}} </a>
+        </div>
+        <div class = 'list_c'>
+            {{todo.content}}
+        </div>
+        <div class = 'list_d'>
+            {{todo.due|timeuntil}} left
+        </div>
+    </div>
+    {% endfor %}
+    <div class = 'button'>
+        <a style = 'color:black;' href = "{% url 'new' %}"> CREATE </a>
+    </div>
+</body>
+</html>

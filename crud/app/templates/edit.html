@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'new.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <div class = 'title_b'>
+        <p class = 'title'>EDIT</p>
+    </div>
+    <form method = 'POST'>
+        {%csrf_token%}
+        <div class = 'new_box'>
+            <div class = 'new'>
+                <p class = 'new_w'> TITLE </p>
+                <input type = 'text' name = 'title' value = '{{todo.title}}'>
+            </div>
+            <div class='new'>
+                <p class = 'new_w'> DETAIL </p>
+                <input type = 'text' name ='content' value = '{{todo.content}}'>
+            </div>
+            <div class ='new'>
+                <p class = 'new_w'> DUE </p>
+                <input type = 'date' name='due' value = '{{todo.due}}'>
+            </div>
+        </div>
+        <button class = 'button' type='submit'> SAVE </button>
+    </form>
+</body>
+</html>
