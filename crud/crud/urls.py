@@ -23,5 +23,6 @@ urlpatterns = [
     path('detail/<int:key>', views.detail , name = 'detail' ),
     path('new', views.new, name = 'new'),
     path('edit/<int:key>', views.edit, name = 'edit'),
-    path('delete/<int:key>', views.delete, name = 'delete')
+    path('delete/<int:key>', views.delete, name = 'delete'),
+    path('delete_comment/<int:key>/<int:comment_key>', views.delete_comment, name = 'delete_comment')
 ]

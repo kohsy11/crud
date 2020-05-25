@@ -20,6 +20,8 @@
 body {
     background-color: #f5f0ed;
     font-family: Roboto;
+    display: flex;
+    flex-direction: column;
 }
 a:link {
     text-decoration: none;
@@ -68,4 +70,8 @@ a:hover {
     margin-top: 17px;
     margin-left: 20px;
     border-radius: 7px;
+}
+.show_comment {
+    display: flex;
+    flex-direction: column;
 }

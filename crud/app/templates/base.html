@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'index.css' %}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <title>{% block title %} {% endblock %}</title>
+</head>
+<body>
+    <div class = 'nav_bar'>
+        <a class = 'home' style = 'color:white;' href = "{% url 'index' %}">TO DO LIST</a>
+        <a class = 'create' style = 'color:white;' href = "{% url 'new' %}"> CREATE </a>
+    </div>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>
