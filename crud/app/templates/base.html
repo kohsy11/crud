@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
+    {% load socialaccount %}
+    {% providers_media_js %}
     <link rel="stylesheet" type="text/css" href="{% static 'index.css' %}">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
@@ -12,7 +14,16 @@
 <body>
     <div class = 'nav_bar'>
         <a class = 'home' style = 'color:white;' href = "{% url 'index' %}">TO DO LIST</a>
-        <a class = 'create' style = 'color:white;' href = "{% url 'new' %}"> CREATE </a>
+        <a class = 'home' style = 'color:white;' href = "{% url 'new' %}"> CREATE </a>
+        {% if user.is_authenticated %}
+        <div class = 'home' style = 'color:white;'>Welcome, {{user.username }}</div>
+        <a class = 'home' style = 'color:white;' href = "{% url 'logout' %}">LOGOUT</a>
+        <a class = 'home' style = 'color:white;' href = "{% url 'mypage' user.pk %}">MY PAGE</a>
+        {% else %}
+        <a class = 'home' style = 'color:white;' href = "{% url 'signup' %}"> SIGN UP </a>
+        <a class = 'home' style = 'color:white;' href = "{% url 'login' %}"> LOGIN </a>
+        <a class = 'home' style = 'color:white;' href = "{% provider_login_url 'google' %}"> LOGIN VIA GOOGLE </a>
+        {% endif %}
     </div>
     {% block content %}
     {% endblock %}

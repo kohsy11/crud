@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
-{% block title %} LIST {% endblock %}
-{% block content %} 
+{% block title %}
+My page
+{% endblock%}
+{% block content %}
     <div class = 'list_b'>
         {% for todo in todos %}
         <div class = 'list'>
@@ -16,4 +18,6 @@
         </div>
         {% endfor %}
     </div>
-{% endblock %}
+{% endblock%}
+
+

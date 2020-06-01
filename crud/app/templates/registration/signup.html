@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %} Signup {% endblock %}
+{% block content %}
+    <div class='detail_box'>
+        <div class='detail_t'>
+            SIGN UP
+        </div>
+    </div>
+    <div class='detail'>
+        <form method = "POST">
+            {% csrf_token %}
+            <input type = 'text' name = 'username' placeholder = 'ID'>
+            <input type = 'text' name = 'password' placeholder = 'Password'>
+            <button type = 'submit'> SIGN UP </button>
+        </form>
+    </div>
+    {% if error %}
+    <h3 style = 'color: red;'> {{error}} </h3>
+    {% endif %}
+{% endblock %}
