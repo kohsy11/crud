@@ -23,6 +23,7 @@
         <a class = 'home' style = 'color:white;' href = "{% url 'signup' %}"> SIGN UP </a>
         <a class = 'home' style = 'color:white;' href = "{% url 'login' %}"> LOGIN </a>
         <a class = 'home' style = 'color:white;' href = "{% provider_login_url 'google' %}"> LOGIN VIA GOOGLE </a>
+        <a class = 'home' style = 'color:white;' href = "{% provider_login_url 'kakao' %}"> LOGIN VIA KAKAO </a>
         {% endif %}
     </div>
     {% block content %}
