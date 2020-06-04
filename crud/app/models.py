@@ -7,6 +7,7 @@ class Todo(models.Model):
     content = models.TextField()
     due = models.DateTimeField()
     author = models.ForeignKey(User, on_delete = models.CASCADE, related_name = 'todos', default = "")
+    img = models.TextField(default="")
 
     def __str__(self):
         return self.title

@@ -4,7 +4,7 @@
     <div class = 'title_b'>
         <p class = 'title'>CREATE NEW</p>
     </div>
-    <form method = 'POST'>
+    <form method = 'POST' enctype="multipart/form-data">
         {%csrf_token%}
         <div class = 'new_box'>
             <div class = 'new'>
@@ -14,6 +14,12 @@
             <div class='new'>
                 <p class = 'new_w'> DETAIL </p>
                 <input type = 'text' name ='content' placeholder= 'type in content'>
+            </div>
+            <div class = 'new'>
+                <p class = 'new_w'> IMAGES </p>
+                    <input type = 'text' name = 'img_title'>
+                    <input type = 'file' name = 'img'> 
+                    <button type = 'submit'> Upload </button>
             </div>
             <div class ='new'>
                 <p class = 'new_w'> DUE </p>

@@ -9,10 +9,17 @@
             </div>
             <div class = 'list_c'>
                 {{todo.content}}
+                {{todo.img}}
             </div>
             <div class = 'list_d'>
                 {{todo.due|timeuntil}} left
             </div>
+        </div>
+        {% endfor %}
+        {% for post in posts %}
+        <div>
+            <h3>{{ post.title }}</h3>
+            <img src="{{ post.img }}" alt="{{ post.title}}">
         </div>
         {% endfor %}
     </div>

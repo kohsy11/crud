@@ -4,6 +4,7 @@ import datetime
 from django.contrib.auth.models import User
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
+from .utils import upload_and_save
 # Create your views here.
 
 def index(request):
@@ -19,17 +20,21 @@ def detail(request, key):
             comment = request.POST['comment'],
             author = request.user
         )
+        
         return redirect('detail', key)
     return render(request, 'detail.html', {'todo' : todo})
 
 @login_required(login_url = '/registration/login')
 def new(request):
     if request.method == 'POST':
+        print(request.POST)
+        file_to_upload = request.FILES.get('img')
         new_todo = Todo.objects.create(
             title = request.POST['title'],
             content = request.POST['content'],
             due = request.POST['due'],
-            author = request.user
+            author = request.user,
+            img = upload_and_save(request, file_to_upload)
         )
         return redirect('detail', new_todo.pk)
     return render(request, 'new.html')
